@@ -21,8 +21,8 @@ const onGenerateSubmit = (e) => {
       generateQRCode(url, size);
 
       setTimeout(() => {
-        const saveUrl = qr.querySelector("img").src;
-        createSaveBtn(saveUrl);
+        const downloadUrl = qr.querySelector("img").src;
+        createDownloadBtn(downloadUrl);
       }, 50);
     }, 1000);
   }
@@ -47,23 +47,23 @@ const hideSpinner = () => {
   document.getElementById("spinner").style.display = "none";
 };
 
-// Clear QR code and save button
+// Clear QR code and download button
 const clearUI = () => {
   qr.innerHTML = "";
-  const saveBtn = document.getElementById("save-link");
-  if (saveBtn) {
-    saveBtn.remove();
+  const downloadBtn = document.getElementById("download-link");
+  if (downloadBtn) {
+    downloadBtn.remove();
   }
 };
 
-// Create save button to download QR code as image
-const createSaveBtn = (saveUrl) => {
+// Create download button to download QR code as image
+const createDownloadBtn = (downloadUrl) => {
   const link = document.createElement("a");
-  link.id = "save-link";
+  link.id = "download-link";
   link.classList =
     "bg-green-500 hover:bg-green-600 text-white font-bold py-2 rounded w-1/3 m-auto my-5";
 
-  link.href = saveUrl;
+  link.href = downloadUrl;
   link.download = "qrcode.png";
   link.innerHTML = "Download Image";
 
