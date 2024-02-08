@@ -37,7 +37,7 @@ const generateQRCode = (url, size) => {
   });
 };
 
-// Show the spinner
+// Display the spinner
 const showSpinner = () => {
   document.getElementById("spinner").style.display = "block";
 };
